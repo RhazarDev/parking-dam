@@ -18,6 +18,18 @@ public class Parking {
 
         System.out.println("Introduce tu nombre: ");
         String nombre = teclado.nextLine();
+        System.out.println("Bienvenido/a, " +nombre);
+
+        mostrarMenu();
+
+
+
+
+        teclado.close();
+    }
+    static void mostrarMenu () {
+        Scanner teclado = new Scanner(System.in);
+        int opcion = 0;
 
         do {
             System.out.println("Menú:");
@@ -39,12 +51,7 @@ public class Parking {
                 default:
             }
 
-        } while (opcion != 4)
+        } while (opcion != 4);
 
-
-
-        teclado.close();
     }
-
-    public void
 }
