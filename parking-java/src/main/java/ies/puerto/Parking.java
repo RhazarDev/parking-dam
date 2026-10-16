@@ -14,9 +14,32 @@ public class Parking {
         int totalHorasRegistradas = 0;
         int totalCalculosTarifa = 0;
         float importeTotalCalculado = 0f;
+        int opcion = 0;
 
         System.out.println("Introduce tu nombre: ");
         String nombre = teclado.nextLine();
+
+        do {
+            System.out.println("Menú:");
+            System.out.println("1. Registrar vehículos");
+            System.out.println("2. Calcular tarifa de estacionamiento");
+            System.out.println("3. Mostrar resumen del día");
+            System.out.println("4. Salir");
+            opcion = teclado.nextInt();
+
+            switch (opcion) {
+                case 1:
+
+                case 2:
+
+                case 3:
+
+                case 4:
+
+                default:
+            }
+
+        } while (opcion != 4)
 
 
 
