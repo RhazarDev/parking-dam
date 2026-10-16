@@ -111,4 +111,10 @@ public class Parking {
         importeTotalCalculado += importe;
         System.out.println("Importe: " + importe + "euros");
     }
+
+    static void mostrarResumen (String nombre) {
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Usuario" +nombre);
+
+    }
 }
