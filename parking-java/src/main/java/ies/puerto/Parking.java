@@ -29,7 +29,9 @@ public class Parking {
     }
 
     /**
-     * Funcion que muestra un menu con elecciones
+     * Funcion que muestra un menú
+     * @param teclado Variable que lee los inputs del usuario
+     * @param nombre Variable que define el nombre del usuario
      */
     static void mostrarMenu (Scanner teclado, String nombre) {
         int opcion = 0;
@@ -66,6 +68,9 @@ public class Parking {
         }while (opcion != 4);
     }
 
+    /**
+     * Funcion que registra los vehiculos y las horas de parking del usuario
+     */
     static void registrarVehiculos () {
         Scanner teclado = new Scanner(System.in);
         int cantidad = 0;
@@ -100,6 +105,9 @@ public class Parking {
         return;
     }
 
+    /**
+     * Funcion que calcula el importe del usuario
+     */
     static void calcularTarifa () {
         Scanner teclado = new Scanner(System.in);
 
@@ -114,6 +122,10 @@ public class Parking {
         return;
     }
 
+    /**
+     * Funcion que muestra el resumen de lo que ha hecho el usuario
+     * @param nombre Variable que define el nombre del usuario
+     */
     static void mostrarResumen (String nombre) {
         Scanner teclado = new Scanner(System.in);
         System.out.println("Usuario: " +nombre);
