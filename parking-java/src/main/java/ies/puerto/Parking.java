@@ -19,10 +19,28 @@ public class Parking {
         System.out.println("Introduce tu nombre: ");
         String nombre = teclado.nextLine();
         System.out.println("Bienvenido/a, " +nombre);
-        do {
-            mostrarMenu();
-            opcion = teclado.nextInt();
 
+        mostrarMenu(teclado, nombre);
+
+
+
+
+        teclado.close();
+    }
+
+    /**
+     * Funcion que muestra un menu con elecciones
+     */
+    static void mostrarMenu (Scanner teclado, String nombre) {
+        int opcion = 0;
+        System.out.println("Menú:");
+        System.out.println("1. Registrar vehículos");
+        System.out.println("2. Calcular tarifa de estacionamiento");
+        System.out.println("3. Mostrar resumen del día");
+        System.out.println("4. Salir");
+        opcion = teclado.nextInt();
+
+        do {
             switch (opcion) {
                 case 1:
                     registrarVehiculos();
@@ -37,26 +55,14 @@ public class Parking {
                     break;
 
                 case 4:
+                    System.out.println("Gracias por utilizar PARKING DAM-PRO");
+                    teclado.close();
+                    return;
 
                 default:
                     System.out.println("Opcion no valida");
             }
         }while (opcion != 4);
-
-
-
-        teclado.close();
-    }
-
-    /**
-     * Funcion que muestra un menu con elecciones
-     */
-    static void mostrarMenu () {
-            System.out.println("Menú:");
-            System.out.println("1. Registrar vehículos");
-            System.out.println("2. Calcular tarifa de estacionamiento");
-            System.out.println("3. Mostrar resumen del día");
-            System.out.println("4. Salir");
     }
 
     static void registrarVehiculos () {
@@ -110,7 +116,12 @@ public class Parking {
     static void mostrarResumen (String nombre) {
         Scanner teclado = new Scanner(System.in);
         System.out.println("Usuario: " +nombre);
-        System.out.println("uwu: " +totalCalculosTarifa);
+        System.out.println("Vehículos registrados: " +totalVehiculos);
+        System.out.println("Horas registradas: "+totalHorasRegistradas);
+        System.out.println("Cálculos de tarifas: " +totalCalculosTarifa);
+        System.out.println("Importe total calculado: " +importeTotalCalculado);
+        return;
+
 
     }
 }
