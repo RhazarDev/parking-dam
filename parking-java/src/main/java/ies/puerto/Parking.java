@@ -74,7 +74,6 @@ public class Parking {
     static void registrarVehiculos () {
         Scanner teclado = new Scanner(System.in);
         int cantidad = 0;
-        int matricula = 0;
         float horas = 0;
 
         do {
@@ -88,7 +87,8 @@ public class Parking {
         for (int contador = 1; contador <= cantidad ; contador++) {
             System.out.println("Vehículo " + contador);
             System.out.println("Introduce tu matrícula");
-            matricula = teclado.nextInt();
+            String matricula = teclado.nextLine();
+            teclado.nextLine();
             do {
                 System.out.println("Introduce las horas estacionadas");
                 horas = teclado.nextFloat();
@@ -134,7 +134,6 @@ public class Parking {
         System.out.println("Cálculos de tarifas: " +totalCalculosTarifa);
         System.out.println("Importe total calculado: " +importeTotalCalculado);
         return;
-
 
     }
 }
