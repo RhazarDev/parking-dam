@@ -12,32 +12,15 @@ public class Parking {
     static int totalHorasRegistradas = 0;
     static int totalCalculosTarifa = 0;
     static float importeTotalCalculado = 0f;
-    static int opcion = 0;
-
     static void main() {
         Scanner teclado = new Scanner(System.in);
+        int opcion = 0;
 
         System.out.println("Introduce tu nombre: ");
         String nombre = teclado.nextLine();
         System.out.println("Bienvenido/a, " +nombre);
-
-        mostrarMenu();
-
-
-
-
-        teclado.close();
-    }
-    static void mostrarMenu () {
-        Scanner teclado = new Scanner(System.in);
-        int opcion = 0;
-
         do {
-            System.out.println("Menú:");
-            System.out.println("1. Registrar vehículos");
-            System.out.println("2. Calcular tarifa de estacionamiento");
-            System.out.println("3. Mostrar resumen del día");
-            System.out.println("4. Salir");
+            mostrarMenu();
             opcion = teclado.nextInt();
 
             switch (opcion) {
@@ -50,14 +33,30 @@ public class Parking {
                     break;
 
                 case 3:
+                    mostrarResumen (nombre);
+                    break;
 
                 case 4:
 
                 default:
+                    System.out.println("Opcion no valida");
             }
+        }while (opcion != 4);
 
-        } while (opcion != 4);
 
+
+        teclado.close();
+    }
+
+    /**
+     * Funcion que muestra un menu con elecciones
+     */
+    static void mostrarMenu () {
+            System.out.println("Menú:");
+            System.out.println("1. Registrar vehículos");
+            System.out.println("2. Calcular tarifa de estacionamiento");
+            System.out.println("3. Mostrar resumen del día");
+            System.out.println("4. Salir");
     }
 
     static void registrarVehiculos () {
@@ -96,25 +95,22 @@ public class Parking {
 
     static void calcularTarifa () {
         Scanner teclado = new Scanner(System.in);
-        float horasTarifa = 0;
 
-        do {
-            System.out.println("Inserte las horas para calcular la tarifa");
-            horasTarifa = teclado.nextFloat();
-            if (horasTarifa <= 0) {
-                System.out.println("Las horas deben ser mayores que 0");
-            }
-        } while (horasTarifa <= 0);
-
-        float importe = horasTarifa * tarifaHora;
+        if (totalHorasRegistradas <= 0) {
+            System.out.println("Las horas deben ser mayores a 0, vuelve a la opción 1");
+            return;
+        }
+        float importe = totalHorasRegistradas * tarifaHora;
         totalCalculosTarifa++;
         importeTotalCalculado += importe;
         System.out.println("Importe: " + importe + "euros");
+        return;
     }
 
     static void mostrarResumen (String nombre) {
         Scanner teclado = new Scanner(System.in);
-        System.out.println("Usuario" +nombre);
+        System.out.println("Usuario: " +nombre);
+        System.out.println("uwu: " +totalCalculosTarifa);
 
     }
 }
